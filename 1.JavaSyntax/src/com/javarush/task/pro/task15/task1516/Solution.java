@@ -14,11 +14,19 @@ public class Solution {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Path path = Path.of(scanner.nextLine());
-        if (Files.isRegularFile(path)) {
-            System.out.println(path + THIS_IS_FILE);
-        } else if (Files.isDirectory(path)) {
-            System.out.println(path + THIS_IS_DIR);
+        while (true) {
+            String str = scanner.nextLine();
+            if (str.isEmpty()) {
+                break;
+            }
+            
+            Path path = Path.of(str);
+            
+            if (Files.isRegularFile(path)) {
+                System.out.println(path + THIS_IS_FILE);
+            } else if (Files.isDirectory(path)) {
+                System.out.println(path + THIS_IS_DIR);
+            } else break;
         }
     }
 }
